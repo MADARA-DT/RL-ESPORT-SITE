@@ -1,0 +1,183 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REIKON LOST ESPORT</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+        color: white;
+    }
+
+    header {
+        text-align: center;
+        padding: 40px 20px;
+        background: #111;
+        border-bottom: 2px solid #ff0000;
+    }
+
+    header img {
+        width: 120px;
+        height: auto;
+        margin-bottom: 15px;
+    }
+
+    header h1 {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 2.5rem;
+        letter-spacing: 2px;
+    }
+
+    header p {
+        color: #bbb;
+        margin-top: 10px;
+    }
+
+    section {
+        padding: 60px 20px;
+        max-width: 900px;
+        margin: auto;
+    }
+
+    .section-title {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 2rem;
+        margin-bottom: 25px;
+        text-align: center;
+        color: #ff0000;
+    }
+
+    .intro-box {
+        background: #1f1f1f;
+        padding: 30px;
+        border-radius: 12px;
+        line-height: 1.8;
+        box-shadow: 0 0 20px rgba(255,0,0,0.2);
+    }
+
+    .register-form {
+        background: #1f1f1f;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 0 20px rgba(255,0,0,0.2);
+    }
+
+    .register-form label {
+        display: block;
+        margin-bottom: 8px;
+        margin-top: 15px;
+        font-weight: 600;
+    }
+
+    .register-form input {
+        width: 100%;
+        padding: 10px;
+        border-radius: 6px;
+        border: none;
+        outline: none;
+        font-size: 1rem;
+    }
+
+    .register-form button {
+        margin-top: 20px;
+        width: 100%;
+        padding: 12px;
+        background: #ff0000;
+        border: none;
+        border-radius: 8px;
+        color: white;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .register-form button:hover {
+        background: #cc0000;
+    }
+
+    footer {
+        text-align: center;
+        padding: 20px;
+        background: #111;
+        margin-top: 40px;
+        color: #aaa;
+        font-size: 0.9rem;
+    }
+</style>
+
+</head>
+<body><header>
+    <img src="https://cdn.discordapp.com/attachments/1150374169188499477/1467839522002833409/file_00000000a17c720ba2513ef5a2960dbe.png?ex=69a96495&is=69a81315&hm=083621ffe014cfb82a14cd728d504685e55f6ad137801c89c410d6b9b227a7b3&" alt="REIKON LOST ESPORT Logo">
+    <h1>REIKON LOST ESPORT</h1>
+    <p>Professional Competitive Gaming Organization</p>
+</header><section>
+    <h2 class="section-title">INTRODUCTION</h2>
+    <div class="intro-box">
+        <p><strong>Owner: RL MADARA</strong></p>
+        <br>
+        <p>
+            REIKON LOST ESPORT is a competitive gaming organization founded with the vision of building a strong, disciplined, and skilled esports community. Under the leadership of RL MADARA, the organization focuses on creating opportunities for talented players to showcase their abilities at a professional level.
+        </p>
+        <br>
+        <p>
+            Our mission is to promote fair play, teamwork, strategic gameplay, and high-level competition. We organize tournaments, competitive matches, and community events to help players grow and perform at their best.
+        </p>
+        <br>
+        <p>
+            REIKON LOST ESPORT stands for dedication, consistency, and dominance in the esports arena. We aim to build a legacy in the competitive gaming world.
+        </p>
+    </div>
+</section><section>
+    <h2 class="section-title">REGISTER YOURSELF</h2>
+    <div class="register-form">
+        <form>
+            <label for="uid">Game UID</label>
+            <input type="text" id="uid" name="uid" placeholder="Enter your Game UID" required><label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your Full Name" required>
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="Enter your Phone Number" required>
+
+        <button type="submit">Submit Registration</button>
+    </form>
+</div>
+
+</section><footer>
+    © 2026 REIKON LOST ESPORT | All Rights Reserved
+</footer><script>
+    const form = document.querySelector("form");
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const data = {
+            uid: document.getElementById("uid").value,
+            name: document.getElementById("name").value,
+            phone: document.getElementById("phone").value
+        };
+
+        fetch("https://script.google.com/macros/s/AKfycbzu7J8cPbKtmYof5eCOFVgc3IeNn2EzF-UowOfKxw0aEVM03tdLLiM0qsrJPa4fV0x5/exec", {
+            method: "POST",
+            mode: "no-cors",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+        .then(() => {
+            alert("Registration Submitted Successfully!");
+            form.reset();
+        })
+        .catch(() => {
+            alert("Error submitting form.");
+        });
+    });
+</script>
+
+</body>
+</html>
