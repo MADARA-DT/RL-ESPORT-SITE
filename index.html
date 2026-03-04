@@ -152,29 +152,42 @@
     © 2026 REIKON LOST ESPORT | All Rights Reserved
 </footer><script>
     const form = document.querySelector("form");
+    const button = form.querySelector("button");
+
     form.addEventListener("submit", function(e) {
         e.preventDefault();
 
+        button.innerText = "Submitting...";
+        button.disabled = true;
+
         const data = {
-            uid: document.getElementById("uid").value,
-            name: document.getElementById("name").value,
-            phone: document.getElementById("phone").value
+            uid: document.getElementById("uid").value.trim(),
+            name: document.getElementById("name").value.trim(),
+            phone: document.getElementById("phone").value.trim()
         };
 
-        fetch("https://script.google.com/macros/s/AKfycbzu7J8cPbKtmYof5eCOFVgc3IeNn2EzF-UowOfKxw0aEVM03tdLLiM0qsrJPa4fV0x5/exec", {
+        fetch("https://script.google.com/macros/sAKfycbzu7J8cPbKtmYof5eCOFVgc3IeNn2EzFUowOfKxw0aEVM03tdLLiM0qsrJPa4fV0x5/exec", {
             method: "POST",
-            mode: "no-cors",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(data)
         })
-        .then(() => {
-            alert("Registration Submitted Successfully!");
-            form.reset();
+        .then(res => res.text())
+        .then(response => {
+            if (response === "DUPLICATE") {
+                alert("This UID is already registered!");
+            } else {
+                alert("Registration Submitted Successfully!");
+                form.reset();
+            }
+            button.innerText = "Submit Registration";
+            button.disabled = false;
         })
         .catch(() => {
-            alert("Error submitting form.");
+            alert("Error submitting form. Please try again.");
+            button.innerText = "Submit Registration";
+            button.disabled = false;
         });
     });
 </script>
